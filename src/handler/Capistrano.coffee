@@ -3,7 +3,7 @@ carrier = require 'carrier'
 
 class Capistrano
   execute: (project, command, msg) ->
-    cap = spawn 'cap', ['-f', "#{process.env.HUBOT_CAP_DIR}/#{project}/deploy.rb", command]
+    cap = spawn 'cap', ['-f', "#{process.env.HUBOT_CAP_DIR}/#{project}/Capfile", command]
     @streamResult cap, msg
 
   streamResult: (cap, msg) ->
