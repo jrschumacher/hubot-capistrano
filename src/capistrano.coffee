@@ -14,14 +14,10 @@ module.exports = (robot) ->
   robot.hear /(cap|capistrano) #list projects/i, (msg) ->
     msg.send "Project list: #{folder.getProjects().join(', ')}"
 
-
-  robot.hear /test/i, (msg) ->
-    msg.send msg.message
-
   robot.hear /(cap|capistrano) ([a-z0-9_-]+) (.*)/i, (msg) ->
     project  = msg.match[2]
     command  = msg.match[3]
-    username = msg.message.user.room.split('@')[0]
+    username = msg.message.user.name
 
     if (!folder.projectExists project)
       return msg.send "This project doesn't exists."
