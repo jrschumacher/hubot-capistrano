@@ -19,8 +19,6 @@ module.exports = (robot) ->
     command  = msg.match[3]
     username = msg.message.user.name
 
-    msg.send msg.message
-
     if (!folder.projectExists project)
       return msg.send "This project doesn't exists."
 
