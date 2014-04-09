@@ -11,10 +11,10 @@ cap        = new Capistrano
 
 module.exports = (robot) ->
 
-  robot.respond /^(cap|capistrano) #list projects/i, (msg) ->
+  robot.respond /(cap|capistrano) #list projects/i, (msg) ->
     msg.send "Project list: #{folder.getProjects().join(', ')}"
 
-  robot.respond /^(cap|capistrano) ([a-z0-9_-]+) (.*)/i, (msg) ->
+  robot.respond /(cap|capistrano) ([a-z0-9_-]+) (.*)/i, (msg) ->
     project  = msg.match[2]
     command  = msg.match[3]
     username = msg.message.user.name
